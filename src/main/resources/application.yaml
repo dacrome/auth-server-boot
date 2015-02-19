@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  session-timeout: 30
+management:
+  port: 8081
+
+logging.level.: ${LOG_LEVEL:INFO}
+logging.level.org.osiam.auth_server: ${LOG_LEVEL_APP:INFO}
+
+# OSIAM configuration
+org.osiam:
+  auth-server:
+    home: http://localhost:8080/osiam-auth-server
+    ldap.enabled: false
+    tempLock.count: 0
+    tempLock.timeout: 30
+  resource-server.home: http://localhost:8080/osiam-resource-server
+
+# database configuration
+spring.jpa:
+  properties.hibernate.hbm2ddl.auto: create-drop
+  show-sql: false
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+spring.datasource:
+
+  url: jdbc:postgresql://localhost:5432/ong
+  username: ong
+  password: b4s3dg0d
+  driverClassName: org.postgresql.Driver
